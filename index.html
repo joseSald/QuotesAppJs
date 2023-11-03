@@ -24,7 +24,7 @@
       const author = document.getElementById('author');
       async function getQuote(url) {
         const response = await fetch(url);
-        let data = await response.json();
+        var data = await response.json();
         quote.innerHTML = data.content;
         author.innerHTML = data.author;
       }
@@ -32,9 +32,11 @@
 
       function tweet() {
         window.open(
-          'https://twitter.com/intent/tweet?text=Hello%20world',
+          `https://twitter.com/intent/tweet?text=${
+            quote.innerHTML + ' ' + author.innerHTML
+          }`,
           'Tweet Window',
-          'width=600, height=300'
+          'width=700, height=500'
         );
       }
     </script>
